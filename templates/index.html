@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+
+      <title>Word Rain</title>
+<link type='text/css' href='static/wordrain.css' rel='stylesheet'/>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no" />
+
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+<script type="text/javascript" src="static/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="static/wordrain.js"></script>
+</head>
+
+   <body>
+<header>
+       <h1>Word Rain</h1>
+     </header>
+<main>
+<div class="mainwrapper">
+  <p>
+  This page will take a text file and generate a Word Rain visualization.
+  </p>
+  <p>
+  Start by choosing the language of the text:
+  </p>
+  <form enctype="multipart/form-data" action="/post" method="post">
+  <div>
+  <select id="languageselect" name="lang">
+    <option value="">Choose language</option>
+    <option value="en">English</option>
+  </select>
+  </div>
+  <div class="disclose-after-language-select">
+
+  <div id="nwordswrapper">
+    <p>
+      <label id="nwordslabel" for="nwords">
+      Then choose number of words to plot:
+    </label>
+    </p>
+      <select id="nwords" name="nwords">
+	<option>300</option>
+	<option>600</option>
+      </select>
+    </div>
+
+
+    <div class="disclose disclosed">
+      <div class="disclosebutton">Advanced settings</div>
+      <div class="disclosecontent">
+	<div class="checkboxrowwrapper">
+	<div class="checkboxrow">
+	<input type="checkbox" id="idf" name="idf">
+	<label id="idflabel" for="idf">Use inverse document frequency</label>
+	</div>
+	</div>
+	<div class="checkboxrowwrapper">
+	<div class="checkboxrow">
+	<input type="checkbox" id="ngrams" name="ngrams">
+	<label id="ngramslabel" for="ngrams">Treat frequent two-word combinations as their own words</label>
+	</div>
+	</div>
+	<div class="filewrapper">
+	<label id="backgroundcorpuslabel"
+      for="backgroundcorpus">Specify a background corpus:</label>
+	<input id="backgroundcorpus" type="file" name="backgroundcorpus" style="">
+	</div>
+      </div>
+    </div>
+
+    <p>
+      Upload either: 
+    <ul>
+      <li> a text file (plain text, UTF-8)
+      <li> a Word .docx file
+    </ul>
+    </p>
+<label id="fileinputlabel" for="fileinput">
+      <div class="fileupload">
+  <div class="uploadprompt"><span class="uploadicon"></span>Upload&nbsp;file</div>
+  </div>
+  </label>
+  <input id="fileinput" type="file" name="file" multiple="" style="">
+
+<div class="uploadprogress">
+</div>
+
+<div class="disclose-after-upload">
+
+  <p>
+  Now choose how you want the word rain to look by configuring how quickly you want less common words to become smaller (word size fall-off) and how tall the vertical bars should be (bar height). Then click the "Draw word rain" button to see the result. Change the settings and redraw the word rain until you are satisfied.
+  </p>
+
+<div class="renderexample">
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1"
+     width="326"
+     height="202"
+     viewBox="0 -130 326 202">
+  <g class="example">
+  <text x="10" y="-120" alignment-baseline="hanging" style="font-family: sans-serif; font-size: 20px;">Example</text>
+  </g>
+</svg>
+</div>
+
+<div class="rangelabels">
+<div class="rangelabelrow">
+<label class="rangelabel" id="fallofflabel" for="falloff">Word size
+fall-off:</label><div class="rangelimit">gradual</div><input type="range" min="0.6" max="1.4" value="1.0"
+    step="0.1" id="falloff" name="falloff"><div class="rangelimit">steep</div><div class="rangedisplay" id="falloffdisplay"></div>
+</div>
+<div class="rangelabelrow">
+
+<label class="rangelabel" id="barratiolabel" for="barratio">Bar height:</label><div class="rangelimit">short</div><input
+type="range" min="0.1" max="0.5" value="0.33" step="0.1" id="barratio" name="barratio"><div class="rangelimit">long</div><div class="rangedisplay" id="barratiodisplay"></div>
+</div>
+</div>
+
+</div>
+
+  <div class="buttonwrapper">
+    <button>Draw word rain</button>
+  </div>
+<div class="downloadprogress">
+</div>
+  </form>
+
+
+
+  </div>
+    </div>
+     </main>
+     <footer>
+       <div class="logowrapper">
+</div>
+<ul class="signoff">
+    <li>
+      Source code for Word Rain is available at <a class="normal" href="https://github.com/CDHUppsala/word-rain">https://github.com/CDHUppsala/word-rain</a>.
+    </li>
+    <li>
+      Source code for the Word Rain service is available at <a class="normal" href="https://github.com/sprakradet/wordrain-service">https://github.com/sprakradet/wordrain-service</a>.
+    </li>
+</ul>
+<ul class="footer-menu">
+</ul>
+    </footer>
+</body>
+
+</html>
