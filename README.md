@@ -51,7 +51,10 @@ conda install nltk
 conda install matplotlib
 conda install -c conda-forge python-bidi
 conda install reportlab
+conda install anaconda::flask
 ```
+
+This has been tested with Python 3.9.6.
 
 
 ### Fetching additional code

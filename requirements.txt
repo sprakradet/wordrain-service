@@ -6,3 +6,4 @@ nltk
 matplotlib
 python-bidi
 reportlab
+flask
