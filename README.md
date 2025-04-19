@@ -100,9 +100,8 @@ ln -s word-rain/fonts fonts
 
 ### Get a word2vec word space model
 
-Download a word2vec model (for example a model for English from
-[Huggingface](https://huggingface.co/fse/word2vec-google-news-300))
-and put it in the Word Rain Web Service directory.
+Download a word2vec model and put it in the Word Rain Web Service directory. For example, a word2vec Continuous Skipgram model for English from the
+[NLPL word embeddings repository](http://vectors.nlpl.eu/repository/).
 
 The example config.py uses `model-en.bin`, so change the filename in
 config.py to the filename you use (and the language code if you use a
